@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Tematicas{% endblock %}
+
+{% block body %}
+    <h1>Create new Tematicas</h1>
+
+    {{ include('tematicas/_form.html.twig') }}
+
+    <a href="{{ path('tematicas_index') }}">back to list</a>
+{% endblock %}

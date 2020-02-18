@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Tematicas{% endblock %}
+
+{% block body %}
+    <h1>Edit Tematicas</h1>
+
+    {{ include('tematicas/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('tematicas_index') }}">back to list</a>
+
+    {{ include('tematicas/_delete_form.html.twig') }}
+{% endblock %}

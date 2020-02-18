@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Conferencias{% endblock %}
+
+{% block body %}
+    <h1>Edit Conferencias</h1>
+
+    {{ include('conferencias/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('conferencias_index') }}">back to list</a>
+
+    {{ include('conferencias/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tematicas{% endblock %}
+
+{% block body %}
+    <h1>Tematicas</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ tematica.id }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ tematica.nombre }}</td>
+            </tr>
+            <tr>
+                <th>HorasDia</th>
+                <td>{{ tematica.horasDia }}</td>
+            </tr>
+            <tr>
+                <th>Almuerzo</th>
+                <td>{{ tematica.almuerzo }}</td>
+            </tr>
+            <tr>
+                <th>HoraTarde</th>
+                <td>{{ tematica.horaTarde }}</td>
+            </tr>
+            <tr>
+                <th>HoraInicio</th>
+                <td>{{ tematica.horaInicio ? tematica.horaInicio|date('H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>HoraFin</th>
+                <td>{{ tematica.horaFin ? tematica.horaFin|date('H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('tematicas_index') }}">back to list</a>
+
+    <a href="{{ path('tematicas_edit', {'id': tematica.id}) }}">edit</a>
+
+    {{ include('tematicas/_delete_form.html.twig') }}
+{% endblock %}

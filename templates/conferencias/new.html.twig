@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Conferencias{% endblock %}
+
+{% block body %}
+    <h1>Create new Conferencias</h1>
+
+    {{ include('conferencias/_form.html.twig') }}
+
+    <a href="{{ path('conferencias_index') }}">back to list</a>
+{% endblock %}
