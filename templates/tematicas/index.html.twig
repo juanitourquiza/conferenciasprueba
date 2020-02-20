@@ -1,45 +1,39 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Tematicas index{% endblock %}
+{% block title %}Tematicas
+{% endblock %}
 
 {% block body %}
-    <h1>Tematicas index</h1>
+	<h1>Tematicas</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nombre</th>
-                <th>HorasDia</th>
-                <th>Almuerzo</th>
-                <th>HoraTarde</th>
-                <th>HoraInicio</th>
-                <th>HoraFin</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for tematica in tematicas %}
-            <tr>
-                <td>{{ tematica.id }}</td>
-                <td>{{ tematica.nombre }}</td>
-                <td>{{ tematica.horasDia }}</td>
-                <td>{{ tematica.almuerzo }}</td>
-                <td>{{ tematica.horaTarde }}</td>
-                <td>{{ tematica.horaInicio ? tematica.horaInicio|date('H:i:s') : '' }}</td>
-                <td>{{ tematica.horaFin ? tematica.horaFin|date('H:i:s') : '' }}</td>
-                <td>
-                    <a href="{{ path('tematicas_show', {'id': tematica.id}) }}">show</a>
-                    <a href="{{ path('tematicas_edit', {'id': tematica.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="8">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('tematicas_new') }}">Create new</a>
-{% endblock %}
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Nombre</th>
+				<th>Almuerzo</th>
+				<th>HoraInicio</th>
+				<th>HoraFin</th>
+				<th>Acciones</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for tematica in tematicas %}
+				<tr>
+					<td>{{ tematica.nombre }}</td>
+					<td>{{ tematica.almuerzo ? tematica.almuerzo|date('H:i:s') : ''}}</td>
+					<td>{{ tematica.horaInicio ? tematica.horaInicio|date('H:i:s') : '' }}</td>
+					<td>{{ tematica.horaFin ? tematica.horaFin|date('H:i:s') : '' }}</td>
+					<td>
+						<a class="btn btn-primary" href="{{ path('tematicas_show', {'id': tematica.id}) }}">Mostrar</a>
+						<a class="btn btn-primary" href="{{ path('tematicas_edit', {'id': tematica.id}) }}">Editar</a>
+						<a class="btn btn-primary" href="{{path('distribucion',{ 'id': tematica.id })}}">Jornada</a>
+					</td>
+				</tr>
+			</td>
+		</tbody>
+	</tr>
+{% else %}
+	<tr>
+		<td colspan="8">Sin registros</td>
+	</tr>
+{% endfor %}</tbody></table><a href="{{ path('tematicas_new') }}">Nuevo</a>{% endblock %}

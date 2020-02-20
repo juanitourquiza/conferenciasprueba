@@ -1,39 +1,38 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Conferencias index{% endblock %}
+{% block title %}Conferencias
+{% endblock %}
 
 {% block body %}
-    <h1>Conferencias index</h1>
+	<h1>Conferencias</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nombre</th>
-                <th>Descripcion</th>
-                <th>Duracion</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for conferencia in conferencias %}
-            <tr>
-                <td>{{ conferencia.id }}</td>
-                <td>{{ conferencia.nombre }}</td>
-                <td>{{ conferencia.descripcion }}</td>
-                <td>{{ conferencia.duracion }}</td>
-                <td>
-                    <a href="{{ path('conferencias_show', {'id': conferencia.id}) }}">show</a>
-                    <a href="{{ path('conferencias_edit', {'id': conferencia.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Nombre</th>
+				<th>Descripcion</th>
+				<th>Duracion</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for conferencia in conferencias %}
+				<tr>
+					<td>{{ conferencia.nombre }}</td>
+					<td>{{ conferencia.descripcion }}</td>
+					<td>{{ conferencia.duracion }}</td>
+					<td>
+						<a href="{{ path('conferencias_show', {'id': conferencia.id}) }}">Mostrar</a>
+						<a href="{{ path('conferencias_edit', {'id': conferencia.id}) }}">Editar</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="5">Sin registros</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
 
-    <a href="{{ path('conferencias_new') }}">Create new</a>
+	<a href="{{ path('conferencias_new') }}">Nuevo</a>
 {% endblock %}

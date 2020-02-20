@@ -1,0 +1,112 @@
+{% extends 'base.html.twig' %}
+{% block title %}Quejas - Radical
+{% endblock %}
+{% block body %}
+	<section class="container-fluid" id="titulo_solucion" style="background-image: url({{ asset('build/radical/1.jpg') }});
+									                                        padding: 200px;
+									                                        background-attachment: ;
+									                                        background-repeat: no-repeat;
+									                                        background-position: top center;
+									                                        background-size: cover;
+									                                        color: white;
+									                                        margin-top: -24px;
+									                                        height:80vh;">
+		<div class="row">
+			<div class="col-md-1"></div>
+			<div class="col-md-10">
+				<h3 style="text-align: center;" id="titulo">
+					<b>{% trans %}¿Desea presentar una queja?{% endtrans %}</b>
+				</h3>
+				<h1 style="text-align: center;">
+					<b>GRUPO RADICAL</b>
+				</h1>
+			</div>
+			<div class="col-md-1"></div>
+		</div>
+		<div class="row"></div>
+	</section>
+
+	<section class="container" style="margin-top: 100px; margin-bottom: 150px;">
+		<div class="row">
+			<div class="col-md-12">
+				<p>{% trans %}En GRUPO RADICAL estamos listos para ayudar{% endtrans %}:</p>
+				<p>{% trans %}SI DESEA DEJAR UNA DENUNCIA EN RELACIÓN A LA IMPLEMENTACIÓN DE LA IS0 37001:2016 SOBRE GESTION ANTISOBORNO SIRVASE LLENAR EL SIGUIENTE FORMULARIO.{% endtrans %}:</p>
+			</div>
+			<div class="col-md-2"></div>
+			<div class="col-md-8 ">
+				<h3 class="text-center text-warning">{% trans %}Ayuda Inmediata{% endtrans %}</h3>
+				<h5 class="text-center ">{% trans %}Expertos en Seguridad Informática.{% endtrans %}</h5><br><br>
+				<form class="card card-signin" action="{{ path('enviarmail') }}" method="post" enctype="multipart/form-data">
+					<div class="form-row">
+						<div class="form-group col-md-12">
+							<label for="inputPassword4" style="color:#da5207">{% trans %}Fecha{% endtrans %}</label>
+							<input class="form-control" id="fecha" name="fecha" value={{ "now"|date("Y-m-d") }} maxlength="300" type="text" required>
+						</div>
+						<div class="form-group col-md-12">
+							<label for="inputEmail4" style="color:#da5207">{% trans %}Personal de Radical involucrado{% endtrans %}</label>
+							<input class="form-control" id="nombre" name="nombre" placeholder="Escriba un nombre" type="text" required>
+						</div>
+						<div class=" form-group col-md-12">
+							<input type="hidden" name="sesion" value="queja">
+							<label for="inputAddress" style="color:#da5207">{% trans %}Mensaje{% endtrans %}</label>
+							<textarea class="form-control" cols="30" id="mensaje" name="mensaje" maxlength="1000" rows="10"></textarea>
+						</div>
+						<div class="form-group col-md-12">
+							<label for="inputAddress4" style="color:#da5207">{% trans %}Pruebas{% endtrans %}</label>
+							<input class="form-control" id="ayudar" name="ayudar" placeholder="cargue su prueba" type="file" required>
+						</div>
+						<div class="g-recaptcha" style="margin:auto;margin-top:20px;margin-bottom:20px" data-sitekey="6Ld6yaAUAAAAAC31AcudBtXRAceVLRtOXVuFU0Tt"></div>
+						<div class="text-center col-md-12">
+							<button type="submit" class="btn text-uppercase" style="border-radius:0px !important;position:initial !important">{% trans %}Enviar{% endtrans %}</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="col-md-2"></div>
+		</div>
+	</section>
+	<style>
+		@media screen and(max-width: 800px) {
+			#btn {
+				width: 100%;
+			}
+			#recaptcha {
+				left: -50px;
+
+				transform: translateX(-30px) scale(0.8);
+			}
+			.list-group {
+				flex-direction: column !important;
+			}
+
+			#titulo_solucion {
+				padding-top: 50px !important;
+				font-size: 0.5pt;
+			}
+			#portada_solucion {
+				height: 100vh !important;
+			}
+		}
+		@media screen and(max-width: 800px) {
+			#titulo_solucion {
+				padding-top: 130px !important;
+				font-size: 0.5pt;
+			}
+			#navPrimary:hover {
+				background-color: #fff !important;
+				-webkit-transition: all 0.5s linear;
+				-moz-transition: all 0.5s linear;
+				-ms-transition: all 0.5s linear;
+				-o-transition: all 0.5s linear;
+				transition: all 0.5s linear;
+			}
+			.card .form-group input:not([type="file"]),
+			.card .form-group textarea {
+				border-radius: 4px;
+				border: 1px solid #f2f2f2;
+			}
+			body {
+				background-image: none !important;
+			}
+		</style>
+	{% endblock %}

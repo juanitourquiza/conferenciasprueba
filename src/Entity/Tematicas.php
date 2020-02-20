@@ -29,25 +29,11 @@ class Tematicas
     private $nombre;
 
     /**
-     * @var int|null
+     * @var \DateTime|null
      *
-     * @ORM\Column(name="horas_dia", type="integer", nullable=true)
-     */
-    private $horasDia;
-
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="almuerzo", type="integer", nullable=true)
+     * @ORM\Column(name="almuerzo", type="time", nullable=true)
      */
     private $almuerzo;
-
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="hora_tarde", type="integer", nullable=true)
-     */
-    private $horaTarde;
 
     /**
      * @var \DateTime|null
@@ -80,38 +66,14 @@ class Tematicas
         return $this;
     }
 
-    public function getHorasDia(): ?int
-    {
-        return $this->horasDia;
-    }
-
-    public function setHorasDia(?int $horasDia): self
-    {
-        $this->horasDia = $horasDia;
-
-        return $this;
-    }
-
-    public function getAlmuerzo(): ?int
+    public function getAlmuerzo(): ?\DateTimeInterface
     {
         return $this->almuerzo;
     }
 
-    public function setAlmuerzo(?int $almuerzo): self
+    public function setAlmuerzo(?\DateTimeInterface $almuerzo): self
     {
         $this->almuerzo = $almuerzo;
-
-        return $this;
-    }
-
-    public function getHoraTarde(): ?int
-    {
-        return $this->horaTarde;
-    }
-
-    public function setHoraTarde(?int $horaTarde): self
-    {
-        $this->horaTarde = $horaTarde;
 
         return $this;
     }
@@ -139,6 +101,4 @@ class Tematicas
 
         return $this;
     }
-
-
 }
