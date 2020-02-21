@@ -7,8 +7,6 @@ Detalles del desarrollo:
 https://csv.thephpleague.com/
 - Los archivos de prueba se los encuentra en esta ruta: https://github.com/juanitourquiza/conferenciasprueba/tree/master/public/uploads
 
-Tambien los adjunto en este correo.
-
 Para que funcione se debe seguir los siguientes pasos:
 En una terminal:
 - git clone https://github.com/juanitourquiza/conferenciasprueba.git
